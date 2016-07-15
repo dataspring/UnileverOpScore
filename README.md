@@ -1,8 +1,6 @@
-**
-
 
 Overall Opinion Score Prediction Challenge
-==========================================
+
 
 Introduction and Overview of Solution
 -------------------------------------
@@ -35,10 +33,9 @@ Being a multi-class classification problem, started with Naïve Bayes and CART. 
 
  1. K-Nearest Neighbors (KNN),    
  2. Bagged AdaBoost (AdaBag)    
- 3. C5.0
- 4. Decision Trees (C5.0)    
- 5. Random Forest (RF),    
- 6. Stochastic Gradient Boosting (GBM)
+ 3. C5.0 Decision Trees (C5.0)    
+ 4. Random Forest (RF),    
+ 5. Stochastic Gradient Boosting (GBM)
     
 We didn’t have much luck with the above except RF. RF models with 40% missing value didn’t fare well, so I ended up with all variables in and 10-fold cross validation yielded only a .266 score in leaderboard. RF model was tuned using Caret package with a lesser folds and tuned the mtry. Number of trees were tuned using tuneRF function. But RF was compute intensive and 10 fold cross validation with 269 features took long time to materialize a model. Even attempted AWS and Azure for compute resources but to no significant avail. Also fine-tuned the multi-class summary function by writing a custom function to adhere to MSE criteria rather than the caret provided Accuracy/Kappa functions. This custom function was used while training for RF and GBM models to decide the right tuning parameters for model selection.
 
@@ -75,6 +72,7 @@ Insights from data
 
 10 fold cross validated RF model produced the following attribute importance: (top 20 is given for brevity)
 
+
  Whereas 10 fold cross validated GBM model produced (top 20 is given for brevity). Both these models concur to certain extent. But the startling finding is if attributes with no relative influence or importance was used for training and prediction in both cases, the MSE score faired poorly.
  
 *Can you find any insights from the data?*
@@ -91,10 +89,6 @@ Also some of the derived columns had greater influence than being individual and
 
 Implementation of model/algorithm from the fields selected
 ----------------------------------------------------------
-
-
-----------
-
 
 *Can the idea be implemented? Please explain how.*
 
@@ -123,9 +117,6 @@ Recommendations
 ---------------
 
 
-----------
-
-
 *Recommendations to improve current data collection and how it should be done.*
 
  - Score Streamlining: Score text and Score number to be consistent and
@@ -151,8 +142,6 @@ Recommendations
 Conclusions
 -----------
 
-
-----------
 *Provide how this solution will be useful and beneficial.*
 
  - Assess which ingredient affects the overall opinion score and hence product make
@@ -167,8 +156,6 @@ This challenge is a right step to explore how survey attributes and detergent in
 Appendix
 --------
 
-
-----------
 *Provide any supporting ideas, recommendations, illustrations, articles and charts.
 Missing Data % Graph – 30% NA values followed by 40% and 50% brackets.*
 
