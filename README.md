@@ -6,20 +6,24 @@ Overall Opinion Score Prediction Challenge
 
 Introduction and Overview of Solution
 -------------------------------------
------
 *Briefly describe your algorithm to predict overall opinion score. And  Provide details of your algorithm including how many of iterations you have to go through to get the final algorithm. We are interested in your train of thoughts.*
 
 From the outset, the focus was on feature selection. Being the first ever competitive entry and with an uphill learning curve mastering R to learn powerful machine learning methods, understood feature engineering plays a crucial role. Features has to be analyzed thoroughly and preprocessed to make it ready so various models can be applied quickly with ease. 
 
 **Features Overview:** 
 Training dataset in total has 302 features including the predictive class Overall.Opinion which is assigned a final score based on individual survey questionnaire responses from each survey respondent. By predicting individual respondent score and collating them across products, we could infer present consumer preference of product make, features, etc. and tailor future product versions and target to right market
+
 **Broadly, features development involved the following:**
+
 **Score Munging:** 
 Scores for majority of features had a text suffixed with a corresponding score. The major cleanup was to stick to suffixed score and discard rest of the explanatory text. Some score columns had redundant columns which were compressed to one, decreasing missing score values. Apply functions and stringr package in R was used to achieve this. Some features had a corresponding ‘strength.’ feature column and they were discarded due to high missing values.
+
 **Level Reduction:** 
 Features like Education.level, Amount.used, Times.used, Dry.method, Annual.household.income had too many options/gradations to rate and were leveled to manageable few 
+
 **Product Mix** 
 This group comprises XX number of features primarily indicating percentage of composition in the overall ingredients make-up of the product. Adding all ingredients amounts to 100% and to even out the influence, all weighted down by dividing each ingredient percentage by 100. 
+
 **Derived Features** 
 Main smell and foam features pertaining to ‘Smell..when.you.wear.them’ and ‘Amount.of.form’ were further enhanced and augmented from all their smell and foam related feature sets – as most of them were having large amount of missing values. Detergent handle involving scoop, spoon, cup and hands were combined into one. 
 
@@ -67,10 +71,6 @@ If absolute Overall.Opinion values are required, probability values can be used 
 Insights from data
 ------------------
 
-
-----------
-
-
 *Can you find the main attributes or factors and/or ingredients which have the most influence on the overall opinion score?*
 
 10 fold cross validated RF model produced the following attribute importance: (top 20 is given for brevity)
@@ -80,8 +80,11 @@ Insights from data
 *Can you find any insights from the data?*
 
 **Data redundancy** – Some features had an associated ‘strength’ feature which was redundant and didn’t add any significant influence and to see if they can fill the missing values in their counterparts was also in vain. Features including ‘Powder.left.on.clothes’ to ‘Skin.Sensitive.Issues’ had an associated ‘strength’ column and were skipped from the training set altogether.
+
 **Data Imputation & Missing Values** – Initially thought of imputing features that have at least 40% missing data might help in predictive influence but found otherwise. After few tuning rounds found that including all finalized 269 features with an ‘UnAvailable’ level for ‘NA’/missing data significantly improved the predictive performance. It’s presumed that some data points (even in a highly missing data column) has an impact on the final prediction and decision tree modelers are able to catch them and can use them to provide better prediction. 
+
 **Data Context** – Major data components include ingredients, usability, foam, smell, fondness and respondent profile. Seems ingredients may not be part of actual survey but included in opinion score to see how ingredient mix might influence the opinion score.
+
 **Scoring Confusion** – Some of the features had a confusing text suffixed with a score, Ignoring the text and assuming the score to better reflect the survey than explanatory text was the methodology used.
 
 Also some of the derived columns had greater influence than being individual and with significant missing data.
@@ -94,18 +97,23 @@ Implementation of model/algorithm from the fields selected
 
 
 *Can the idea be implemented? Please explain how.*
+
 The idea can be implemented by using R and perhaps Revolution R with a robust enterprise level handling of execution, security and devops.  Again the objective for prediction results and how Unilever intends to capitalize on this results to ‘improve what’ decides the overall implementation. 
 
 *How easy can it be implemented?*
+
 Model implementation is fairly straight forward from a algorithm perspective but intricacies of survey frequency, data volume, data quality and additional actionable insights required decides the complexity.
 
 *Any risk in the implementation and how to overcome it?*
+
 As above
 
 *State hypothesis.*
+
 Purpose of implementation is to predict the overall opinion score with available dataset
 
 *State assumptions which you made to implement the solution.*
+
 1.	Survey is primarily intended to identify consumer preference of detergents
 2.	Survey is of similar type with no change on features
 3.	Missing value percentage may vary slightly
@@ -153,6 +161,7 @@ Conclusions
  - With external datasets, new product market reach can be predicted for a given ingredient mix and demography reach/consumer preferences
 
 *Provide any conclusions you can make from this challenge.*
+
 This challenge is a right step to explore how survey attributes and detergent ingredient mix affect each other but a first step in utilizing machine learning to explore new avenues to capitalize on data to serve consumers and delight them ultimately. 
 
 Appendix
@@ -163,5 +172,5 @@ Appendix
 *Provide any supporting ideas, recommendations, illustrations, articles and charts.
 Missing Data % Graph – 30% NA values followed by 40% and 50% brackets.*
 
-                                                     
+
 
