@@ -1,5 +1,6 @@
 
 Overall Opinion Score Prediction Challenge
+====================
 
 
 Introduction and Overview of Solution
@@ -45,23 +46,23 @@ Using cross validation error, tuned the following parameters: number of trees, b
 
 Final Model created using 269 attributes with a GBM model as follows:
  
-
-> gbmFit9Gauss400 <-   gbm(
->     Overall.Opinion ~ .,
->     data = train1.batch,
->     distribution="gaussian", # see the help for other choices
->     n.trees=400, # number of trees
->     shrinkage=0.075, # shrinkage or learning rate,# 0.001 to 0.1 usually work
->     interaction.depth=6, # 1: additive model, 2: two-way interactions, etc.
->     bag.fraction = 0.5, # subsampling fraction, 0.5 is probably best
->     train.fraction = 0.65, # fraction of data for training, # first train.fraction*N used for training
->     n.minobsinnode = 8, # minimum total weight needed in each node
->     cv.folds = 10, # do 3-fold cross-validation
->     keep.data=TRUE, # keep a copy of the dataset with the object
->     verbose=TRUE, # don't print out progress
->     n.cores=7) # use only a single  save(gbmFit9Gauss400, file="D:\\Data
-> Mining\\02-Dextra-Unilever\\01-NA-All\\gbmFit9Gauss400.RData")
-> 
+```R
+ gbmFit9Gauss400 <-   gbm(
+     Overall.Opinion ~ .,
+     data = train1.batch,
+     distribution="gaussian", # see the help for other choices
+     n.trees=400, # number of trees
+     shrinkage=0.075, # shrinkage or learning rate,# 0.001 to 0.1 usually work
+     interaction.depth=6, # 1: additive model, 2: two-way interactions, etc.
+     bag.fraction = 0.5, # subsampling fraction, 0.5 is probably best
+     train.fraction = 0.65, # fraction of data for training, # first train.fraction*N used for training
+     n.minobsinnode = 8, # minimum total weight needed in each node
+     cv.folds = 10, # do 3-fold cross-validation
+     keep.data=TRUE, # keep a copy of the dataset with the object
+     verbose=TRUE, # don't print out progress
+     n.cores=7) # use only a single  save(gbmFit9Gauss400, file="D:\\Data
+ Mining\\02-Dextra-Unilever\\01-NA-All\\gbmFit9Gauss400.RData")
+``` 
 
 If absolute Overall.Opinion values are required, probability values can be used either from the RF model or other models to decide the absolute value instead of decimal values.
 
