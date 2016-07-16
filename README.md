@@ -163,3 +163,5 @@ Missing Data % Graph – 30% NA values followed by 40% and 50% brackets.*
 
 ![alt text](https://github.com/dataspring/UnileverOpScore/blob/master/Images/Data-List3.jpg "Missing Data Attributes by %NAs")
 
+How the scoreboard stood as I did my final submission, I'm in the last: 
+![alt text](https://github.com/dataspring/UnileverOpScore/blob/master/Images/Dextra-Leaderboard.png "Scoreboard As it Was")
