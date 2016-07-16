@@ -2,6 +2,7 @@
 Overall Opinion Score Prediction Challenge
 ====================
 
+<p><i><small>R code for this solution is in R-Scripts folder above - submitted on Feb 2015</small></i></p>
 
 Introduction and Overview of Solution
 -------------------------------------
