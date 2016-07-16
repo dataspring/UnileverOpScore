@@ -72,9 +72,10 @@ Insights from data
 *Can you find the main attributes or factors and/or ingredients which have the most influence on the overall opinion score?*
 
 10 fold cross validated RF model produced the following attribute importance: (top 20 is given for brevity)
-
+![alt text](https://github.com/dataspring/UnileverOpScore/blob/master/Images/Data-List1.jpg "Attribute Importance Table")
 
  Whereas 10 fold cross validated GBM model produced (top 20 is given for brevity). Both these models concur to certain extent. But the startling finding is if attributes with no relative influence or importance was used for training and prediction in both cases, the MSE score faired poorly.
+ ![alt text](https://github.com/dataspring/UnileverOpScore/blob/master/Images/Data-List2.jpg "GBM Model Attributes")
  
 *Can you find any insights from the data?*
 
@@ -160,5 +161,5 @@ Appendix
 *Provide any supporting ideas, recommendations, illustrations, articles and charts.
 Missing Data % Graph – 30% NA values followed by 40% and 50% brackets.*
 
-
+![alt text](https://github.com/dataspring/UnileverOpScore/blob/master/Images/Data-List3.jpg "Missing Data Attributes by %NAs")
 
